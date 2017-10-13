@@ -1,16 +1,15 @@
-import React from "react";
+import React,{Component} from "react";
 
 import { LocaleProvider } from "antd";
 // 注册路由 
 import { BrowserRouter } from "react-router-dom";
-import {
-  ModePage
-}from 'Modebase'
+
+import config from './config'
 
 //注册 mobx
 import { Provider } from 'mobx-react'
 import RootStore from './store/RootStore'
-import config from './config'
+import Indexpage from 'components/page'
 
 
 //注册 多语言 
@@ -32,16 +31,15 @@ const currentLang = rootStore.language;
 addLocaleData([...zh, ...en]);
 
 
-
-
-class App extends ModePage {
+class App extends Component {
+  
   render() {
     return (
       <IntlProvider locale={currentLang} messages={messages[currentLang]}>
         <LocaleProvider locale={enUS}>
           <Provider $rootStore={rootStore}>
             <BrowserRouter>
-              
+                <Indexpage></Indexpage>
             </BrowserRouter>
           </Provider>
         </LocaleProvider>

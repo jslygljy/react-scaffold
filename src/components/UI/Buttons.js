@@ -7,15 +7,14 @@ import {
   Icon,
   Breadcrumb
 } from "antd";
-import {
-  ModePage
-}from 'Modebase'
 
 
 import { FormattedMessage } from 'react-intl';
+import ModePage from 'Modebase/page'
 
 const { Content } = Layout;
 const ButtonGroup = Button.Group;
+
 class Buttons extends ModePage {
   
   render() {

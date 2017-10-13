@@ -6,16 +6,10 @@ import {
     Col, 
     Layout, 
     Pagination } from "antd";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+    import ModePage from 'Modebase/page'
 const { Content } = Layout;
-class Pageination extends Component {
-  componentWillMount = () => {
-    NProgress.start();
-  };
-  componentDidMount = () => {
-    NProgress.done();
-  };
+
+class Pageination extends ModePage {
   onShowSizeChange=(current, pageSize)=> {
         console.log(current, pageSize);
   }      

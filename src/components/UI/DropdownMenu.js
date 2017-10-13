@@ -10,8 +10,7 @@ import {
   Layout,
   Button
 } from "antd";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+import ModePage from 'Modebase/page'
 const { Content } = Layout;
 const menu = (
   <Menu>
@@ -57,13 +56,8 @@ const menudirection = (
     </Menu.Item>
   </Menu>
 );
-class DropdownMenu extends Component {
-  componentWillMount = () => {
-    NProgress.start();
-  };
-  componentDidMount = () => {
-    NProgress.done();
-  };
+
+class DropdownMenu extends ModePage {
   handleButtonClick = e => {
     message.info("Click on left button.");
   };
