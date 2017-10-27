@@ -5,22 +5,18 @@ import {
     Switch,
 } from 'react-router-dom';
 
-import Icons from '../components/UI/Icons';
-import Buttons from '../components/UI/Buttons';
-import DropdownMenu from '../components/UI/DropdownMenu';
-import Pageination from '../components/UI/Pageination';
-
+import Routes from 'containers/route';
 
 export default class RouterUrl extends Component{
+
     render(){
         return( 
                 <Switch>
-                    <Route exact path="/" component={Buttons}/>
-                    <Route path='/ui/buttons' component={Buttons}/>
-                    <Route path='/ui/icons' component={Icons}/>
-                    <Route path='/ui/dropdown' component={DropdownMenu}/>
-                    <Route path='/ui/pageination' component={Pageination}/>
-                    <Route component={Icons}/>
+                    <Route exact path="/" component={Routes.get('Buttons').component}/>
+                    <Route path='/ui/buttons' component={Routes.get('Buttons').component}/>
+                    <Route path='/ui/icons' component={Routes.get('Icons').component}/>
+                    <Route path='/ui/dropdown' component={Routes.get('DropdownMenu').component}/>
+                    <Route path='/ui/pageination' component={Routes.get('Pageination').component}/>
                 </Switch>
         )
     }
