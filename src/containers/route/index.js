@@ -7,7 +7,6 @@ import DropdownMenu from 'containers/DropdownMenu/containers'
 import Icons from 'containers/Icons/containers'
 import Pageination from 'containers/Pageination/containers'
 
-
 const routeMap = new Map();
 
 routeMap.set('Buttons', {

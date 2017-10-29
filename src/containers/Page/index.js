@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-  import { Layout, Icon } from "antd";
-  
-  import autobind from 'autobind-decorator'
-  import RouterUrl from "router/RouterUrl";
-  import Nav from "containers/Nav";
-  import { FormattedMessage } from 'react-intl';
-  import './index.css';
+import { Layout, Icon } from "antd";
+
+import RouterUrl from "router/RouterUrl";
+import Nav from "containers/Nav";
+import './index.css';
   
 
 const { Header, Sider, Footer } = Layout;

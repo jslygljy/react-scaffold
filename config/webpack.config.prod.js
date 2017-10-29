@@ -56,7 +56,10 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: {
+      app:[require.resolve('./polyfills'), paths.appIndexJs],
+      vendor: ['react', 'react-dom', 'react-router','react-router-dom', 'mobx', 'mobx-react']
+  },
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -89,12 +92,14 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
-    alias: {
-      
-      // Support React Native Web
-      // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-      'react-native': 'react-native-web',
-    },
+      alias: {
+          'react-native': 'react-native-web',
+          'src':path.join(__dirname, '..', 'src'),
+          'language':path.join(__dirname, '..', 'src/language'),
+          'router':path.join(__dirname, '..', 'src/router'),
+          'Modebase':path.join(__dirname, '..', 'src/Modebase'),
+          'containers':path.join(__dirname, '..', 'src/containers')
+      },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
       // This often causes confusion because we only process files within src/ with babel.
@@ -102,17 +107,12 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        new webpack.optimize.CommonsChunkPlugin({name: 'vendor',chunks: 'vendor', filename: 'vendor.[hash:8].js'}),
     ],
   },
   module: {
     strictExportPresence: true,
     rules: [
-      // TODO: Disable require.ensure as it's not a standard language feature.
-      // We are waiting for https://github.com/facebookincubator/create-react-app/issues/2176.
-      // { parser: { requireEnsure: false } },
-
-      // First, run the linter.
-      // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
@@ -183,26 +183,21 @@ module.exports = {
                         sourceMap: shouldUseSourceMap,
                       },
                     },
-                    {
-                      loader: require.resolve('postcss-loader'),
-                      options: {
-                        // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
-                        ident: 'postcss',
-                        plugins: () => [
-                          require('postcss-flexbugs-fixes'),
-                          autoprefixer({
-                            browsers: [
-                              '>1%',
-                              'last 4 versions',
-                              'Firefox ESR',
-                              'not ie < 9', // React doesn't support IE8 anyway
-                            ],
-                            flexbox: 'no-2009',
-                          }),
-                        ],
+                      {
+                          loader: require.resolve('postcss-loader'),
+                          options: {
+                              // Necessary for external CSS imports to work
+                              // https://github.com/facebookincubator/create-react-app/issues/2677
+                              ident: 'postcss',
+                              plugins: () => [
+                                  require('postcss-flexbugs-fixes'),
+                                  require('postcss-cssnext', {
+                                      browsers: ['last 2 version']
+                                  })
+
+                              ],
+                          },
                       },
-                    },
                   ],
                 },
                 extractTextPluginOptions
@@ -324,6 +319,11 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.optimize.UglifyJsPlugin({
+        compressor: {
+            warnings: false,
+        }
+    }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

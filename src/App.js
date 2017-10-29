@@ -13,7 +13,7 @@ import Indexpage from 'containers/Page'
 
 
 //注册 多语言 
-import { addLocaleData, IntlProvider, FormattedMessage } from 'react-intl';
+import { addLocaleData, IntlProvider} from 'react-intl';
 import enUS from 'antd/lib/locale-provider/en_US';
 import zh from 'react-intl/locale-data/zh';
 import en from 'react-intl/locale-data/en';
@@ -32,7 +32,9 @@ addLocaleData([...zh, ...en]);
 
 
 class App extends Component {
-  
+    componentDidMount() {
+        console.log(config)
+    }
   render() {
     return (
       <IntlProvider locale={currentLang} messages={messages[currentLang]}>

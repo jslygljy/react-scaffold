@@ -1,23 +1,16 @@
 import DownMenuStore from './downMenu.store';
 import {
     observable,
-    action,
-    autorun
+    action
 } from 'mobx';
 
 export default class DownMenuAction extends DownMenuStore {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
+    @observable test = '';
 
-  @action
-  updateUsername(username){
-    console.log(username);
-    this.username = username;
-  }
-
-  @action
-  updatePassword(password) {
-    this.password = password;
-  }
+    @action testfunction() {
+        this.test = 'test';
+    }
 }

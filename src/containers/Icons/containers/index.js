@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+import React from "react";
 import {
     Icon,
     Breadcrumb} from "antd";

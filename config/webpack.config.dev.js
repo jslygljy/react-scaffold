@@ -32,28 +32,14 @@ module.exports = {
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
-  entry: [
-    // Include an alternative client for WebpackDevServer. A client's job is to
-    // connect to WebpackDevServer by a socket and get notified about changes.
-    // When you save a file, the client will either apply hot updates (in case
-    // of CSS changes), or refresh the page (in case of JS changes). When you
-    // make a syntax error, this client will display a syntax error overlay.
-    // Note: instead of the default WebpackDevServer client, we use a custom one
-    // to bring better experience for Create React App users. You can replace
-    // the line below with these two lines if you prefer the stock client:
-    // require.resolve('webpack-dev-server/client') + '?/',
-    // require.resolve('webpack/hot/dev-server'),
-    require.resolve('react-dev-utils/webpackHotDevClient'),
-    // We ship a few polyfills by default:
-    require.resolve('./polyfills'),
-    // Errors should be considered fatal in development
-    require.resolve('react-error-overlay'),
-    // Finally, this is your app's code:
-    paths.appIndexJs,
-    // We include the app code last so that if there is a runtime error during
-    // initialization, it doesn't blow up the WebpackDevServer client, and
-    // changing JS code would still trigger a refresh.
-  ],
+  entry: {
+    app:[
+        require.resolve('./polyfills'),
+        paths.appIndexJs,require.resolve('react-error-overlay'),
+        require.resolve('react-dev-utils/webpackHotDevClient')
+    ],
+    vendor: ['react', 'react-dom', 'react-router','react-router-dom', 'mobx', 'mobx-react']
+  },
   output: {
     // Next line is not used in dev but WebpackDevServer crashes without it:
     path: paths.appBuild,
@@ -97,6 +83,7 @@ module.exports = {
     },
     plugins: [
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        new webpack.optimize.CommonsChunkPlugin({name: 'vendor',chunks: 'vendor', filename: 'vendor.[hash:8].js'}),
     ],
   },
   module: {
@@ -171,18 +158,30 @@ module.exports = {
                 },
               },
               {
-                  loader: 'postcss-loader',
+                loader: require.resolve('postcss-loader'),
                   options: {
-                      plugins: [
-                          require('postcss-import'),
+                      // Necessary for external CSS imports to work
+                      // https://github.com/facebookincubator/create-react-app/issues/2677
+                      ident: 'postcss',
+                      plugins: () => [
+                          require('postcss-flexbugs-fixes'),
                           require('postcss-cssnext', {
                               browsers: ['last 2 version']
-                          }),
-                      ]
-                  }
+                          })
+
+                      ],
+                  },
               },
             ],
           },
+            //             options: {
+            //     plugins: [
+            //         require('postcss-import'),
+            //         require('postcss-cssnext', {
+            //             browsers: ['last 2 version']
+            //         }),
+            //     ]
+            // }
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.
@@ -215,7 +214,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      title: 'React-后台管理系统',
+      dll: '/dll.development.js',
     }),
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.[hash:8].js'}),
+
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
@@ -238,6 +241,10 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      // new webpack.DllReferencePlugin({
+      //     context: __dirname,
+      //     manifest: require('./dist/vendors-manifest.json')
+      // })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

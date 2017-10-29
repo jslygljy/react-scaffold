@@ -1,12 +1,16 @@
 import IconStore from './icon.store';
 import {
     observable,
-    action,
-    autorun
+    action
 } from 'mobx';
 
 export default class IconAction extends IconStore {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
+    @observable test = '';
+
+    @action testfunction() {
+        this.test = 'test';
+    }
 }

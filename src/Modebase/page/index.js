@@ -7,9 +7,9 @@ import "nprogress/nprogress.css";
 
 
 class ModePage extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
   componentWillMount = () => {
     NProgress.start();
@@ -17,7 +17,11 @@ class ModePage extends PureComponent {
   componentDidMount = () => {
     NProgress.done();
   };
-
+    render() {
+        return (
+            <div></div>
+        )
+    }
 }
 
 export default ModePage;
