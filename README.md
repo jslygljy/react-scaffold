@@ -20,4 +20,4 @@
 ## 参考
 
 * [rc-admin](https://github.com/SuJunming/rc-admin)
-* 
+* [Webpack配置](http://www.jianshu.com/p/a46e30d7ef39)
