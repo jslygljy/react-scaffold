@@ -11,7 +11,9 @@
 * ES6   
 * 多语言    https://segmentfault.com/a/1190000005824920#articleHeader9
 
+## webpack 优化介绍
 
+* [Webpack配置](http://www.jianshu.com/p/a46e30d7ef39)
 
 ## TODO
 * 权限模块
@@ -20,4 +22,3 @@
 ## 参考
 
 * [rc-admin](https://github.com/SuJunming/rc-admin)
-* [Webpack配置](http://www.jianshu.com/p/a46e30d7ef39)
