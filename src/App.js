@@ -20,6 +20,7 @@ import en from 'react-intl/locale-data/en';
 import zh_CN from 'language/zh_CN';
 import en_US from 'language/en_US';
 
+
 // 根状态, 比如当前应用的整体信息
 const rootStore = new RootStore()
 

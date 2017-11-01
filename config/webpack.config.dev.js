@@ -11,7 +11,8 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-
+const manifest = require('../dll/vendor-manifest.json');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -214,8 +215,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
-      title: 'React-后台管理系统',
-      dll: '/dll.development.js',
+      title: 'React-后台管理系统'
     }),
     new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.[hash:8].js'}),
 
@@ -241,10 +241,10 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      // new webpack.DllReferencePlugin({
-      //     context: __dirname,
-      //     manifest: require('./dist/vendors-manifest.json')
-      // })
+      new AddAssetHtmlPlugin({ filepath: require.resolve('../dll/vendor.js'), includeSourcemap: false }),
+      new webpack.DllReferencePlugin({
+          manifest,
+      }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

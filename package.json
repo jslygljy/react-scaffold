@@ -6,6 +6,7 @@
     "primary-color": "#1DA57A"
   },
   "dependencies": {
+    "add-asset-html-webpack-plugin": "^2.1.2",
     "antd": "^2.12.6",
     "autobind-decorator": "^2.1.0",
     "autoprefixer": "7.1.2",
@@ -60,7 +61,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "redll": "cd config && webpack --config webpack.dll.dev.js",
+    "redll": "webpack -p --progress --config webpack.dll.dev.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {

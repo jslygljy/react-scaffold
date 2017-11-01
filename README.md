@@ -12,12 +12,12 @@
 * 多语言    https://segmentfault.com/a/1190000005824920#articleHeader9
 
 
+
 ## TODO
-* 完善文件目录结构
-* Webpack优化
 * 权限模块
 * 异常处理
 
 ## 参考
 
 * [rc-admin](https://github.com/SuJunming/rc-admin)
+* 

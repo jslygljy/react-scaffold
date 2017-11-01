@@ -12,7 +12,8 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-
+const manifest = require('../dll/vendor-manifest.json');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -70,6 +71,7 @@ module.exports = {
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: publicPath,
+      library: '[name]',
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
@@ -324,6 +326,10 @@ module.exports = {
             warnings: false,
         }
     }),
+      new AddAssetHtmlPlugin({ filepath: require.resolve('../dll/vendor.js'), includeSourcemap: false }),
+      new webpack.DllReferencePlugin({
+          manifest
+      })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
