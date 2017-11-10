@@ -2385,6 +2385,22 @@ draft-js@^0.10.0, draft-js@~0.10.0:
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
+draft-js@^0.10.4:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/draft-js/-/draft-js-0.10.4.tgz#147741642097c8120d8edc232e9503e8b7fb8d35"
+  dependencies:
+    fbjs "^0.8.15"
+    immutable "~3.7.4"
+    object-assign "^4.1.0"
+
+draftjs-to-html@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/draftjs-to-html/-/draftjs-to-html-0.7.6.tgz#95bc55aeeca6c6a7abc242c5616946704c6685c9"
+
+draftjs-utils@^0.8.07:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/draftjs-utils/-/draftjs-utils-0.8.8.tgz#5835daed95f59d3ee1f96fdcbbb9809772c86490"
+
 duplexer2@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -5950,6 +5966,17 @@ q@^1.1.2:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
+qr.js@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
+
+qrcode.react@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-0.7.2.tgz#72a5718fd56baafe15c2c153fe436628d83aa286"
+  dependencies:
+    prop-types "^15.5.8"
+    qr.js "0.0.0"
+
 qs@6.5.1, qs@~6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
@@ -6383,6 +6410,14 @@ react-dom@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
+react-draft-wysiwyg@^1.10.12:
+  version "1.10.12"
+  resolved "https://registry.yarnpkg.com/react-draft-wysiwyg/-/react-draft-wysiwyg-1.10.12.tgz#4a8c24094bde11dfbc540d86acd8321cb72ba01b"
+  dependencies:
+    classnames "^2.2.5"
+    draftjs-utils "^0.8.07"
+    prop-types "^15.5.10"
+
 react-error-overlay@^1.0.10:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-1.0.10.tgz#da8cd1eafac41afdca2a33792b23694ef6c528f1"
@@ -6393,6 +6428,10 @@ react-error-overlay@^1.0.10:
     react-dev-utils "^3.1.0"
     settle-promise "1.0.0"
     source-map "0.5.6"
+
+react-image-crop@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/react-image-crop/-/react-image-crop-3.0.7.tgz#8f7f1f03031c76c8b6306d11f7d1b8bf3007ab8c"
 
 react-intl@^2.4.0:
   version "2.4.0"

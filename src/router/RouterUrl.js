@@ -6,6 +6,9 @@ import {
 } from 'react-router-dom';
 // 异步引入
 import {Bundle} from 'Modebase'
+import  {
+    Form
+} from "antd";
 
 
 const Buttons = (props) => (
@@ -48,17 +51,55 @@ const Pageination = (props) => (
     </Bundle>
 );
 
+const Information = (props) => (
+    <Bundle load={(cb) => {
+        require.ensure([], require => {
+            cb(require('containers/Information/containers').default);
+        },'Information');
+    }}>
+        {(Information) => <Information {...props}/>}
+    </Bundle>
+);
+
+const Reshopment = (props) => (
+    <Bundle load={(cb) => {
+        require.ensure([], require => {
+            cb(require('containers/Reshipment/containers').default);
+        },'Reshopment');
+    }}>
+        {(Reshopment) => <Reshopment {...props}/>}
+    </Bundle>
+);
+
+const Editpage = (props) => (
+    <Bundle load={(cb) => {
+        require.ensure([], require => {
+            cb(require('containers/Editpage').default);
+        },'Editpage');
+    }}>
+        
+        {(Editpage) => <Editpage {...props}/>}
+    </Bundle>
+);
+
+const EditpageForm =Form.create({})(Editpage); 
+
+
 
 export default class RouterUrl extends Component{
 
     render(){
         return(
                 <Switch>
-                    <Route exact path="/" component={Buttons}/>
+                    <Route exact path="/information" component={Buttons}/>
                     <Route path='/ui/buttons' component={Buttons}/>
                     <Route path='/ui/icons' component={Icons}/>
                     <Route path='/ui/dropdown' component={DropdownMenu}/>
                     <Route path='/ui/pageination' component={Pageination}/>
+                    <Route path='/ui/information' component={Information}/>
+                    <Route path='/ui/reshopment' component={Reshopment}/>
+                    <Route path='/ui/edit' component={EditpageForm}/>
+                    
                 </Switch>
                 // <Switch>
                 //     <Route exact path="/" component={Routes.get('Buttons').component}/>

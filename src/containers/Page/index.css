@@ -1,5 +1,9 @@
 html,#root,.App{
-  height: 100%
+  height: 100%;
+  overflow-y: hidden
+}
+.ant-layout{
+  background-color: #fff
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

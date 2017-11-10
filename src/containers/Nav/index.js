@@ -58,22 +58,16 @@ class Nav extends Component {
           key="/ui"
           title={
             <span>
-              <Icon type="credit-card" />
-              <span>ui</span>
+              <Icon type="environment-o" />
+              <span>资讯管理</span>
             </span>
           }
         >
-          <Menu.Item key="/ui/buttons">
-            <Link to={`/ui/buttons`}>buttons</Link>
+          <Menu.Item key="/ui/information">
+            <Link to={`/ui/information`}>资讯管理</Link>
           </Menu.Item>
-          <Menu.Item key="/ui/icons">
-            <Link to={`/ui/icons`}>icons</Link>
-          </Menu.Item>
-          <Menu.Item key="/ui/dropdown">
-            <Link to={`/ui/dropdown`}>dropdown</Link>
-          </Menu.Item>
-          <Menu.Item key="/ui/pageination">
-            <Link to={`/ui/pageination`}>pageination</Link>
+          <Menu.Item key="/ui/reshopment">
+            <Link to={`/ui/reshopment`}>转载专区</Link>
           </Menu.Item>
         </SubMenu>
         

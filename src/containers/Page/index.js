@@ -40,9 +40,7 @@ export default class Indexpage extends Component {
                             />
                         </Header>
                         <RouterUrl />
-                        <Footer style={{ textAlign: 'center' }}>
-                            -Admin ©2017 Created by junyu
-                </Footer>
+                        
                     </Layout>
                 </Layout>
             </div>

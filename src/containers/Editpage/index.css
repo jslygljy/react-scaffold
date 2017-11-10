@@ -1,0 +1,92 @@
+.Editpage{
+    padding: 23px;
+    color:#4b4b4b;
+    font-size: 14px;
+    & .buttonlist{
+        border-bottom: 3px solid #dfdfdf;
+        height: 60px;
+    }
+
+    & .Editform{
+        margin-top: 18px;
+    }
+
+    & .fontname{
+        line-height: 32px;
+        color:#737373;
+    }
+    & .ant-tabs-bar{
+        margin-bottom: 0px;
+    }
+    & .uploadcontent{
+        border:1px solid #e6e6e6;
+        height:357px;
+        & .uploadfont{
+            font-size:14px;
+            color:#7196cb;
+            margin-left:60px;
+            margin-top:50px;
+            font-size:14px;
+            font-weight: bold;
+        }
+    }
+
+    & .delicon{
+        font-size: 26px;
+        color: '#737373';
+        width: 61px;
+        height: 61px;
+        line-height: 55px;
+        border:1px solid #c5c5c5;
+        border-radius:100%;
+        margin-left:40px;
+        margin-top:10px;
+    }
+    
+    & .recommendapp-uploader{
+        width:408px;
+        height:161px;
+        display: block;
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-left: 60px;
+        margin-top:10px;
+    }
+    & .recommendapp-trigger {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 28px;
+        color: #999;
+        width:408px;
+        height:161px;
+      }
+
+      & .demo-editor {
+        height: 275px;
+        border: 1px solid #F1F1F1;
+        padding: 5px;
+        border-radius: 2px
+      }
+}
+
+.avatar-uploader,
+.avatar-uploader-trigger,
+.avatar {
+  width: 150px;
+  height: 150px;
+}
+.avatar-uploader {
+  display: block;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 60px;
+  margin-top:10px;
+}
+.avatar-uploader-trigger {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 28px;
+  color: #999;
+}
