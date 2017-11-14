@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Layout, Icon } from "antd";
 
 import RouterUrl from "router/RouterUrl";
-import Nav from "containers/Nav";
+import Nav from "component/Nav";
 import './index.css';
   
 

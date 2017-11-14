@@ -29,7 +29,7 @@ class Nav extends Component {
     );
     this.setState({
       open: Open === "" ? "/ui" : Open,
-      current: selected === "/" ? "/ui/buttons" : selected
+      current: selected === "/" ? "/ui/information" : selected
     });
   };
   openMenu = data => {
@@ -69,6 +69,19 @@ class Nav extends Component {
           <Menu.Item key="/ui/reshopment">
             <Link to={`/ui/reshopment`}>转载专区</Link>
           </Menu.Item>
+          <Menu.Item key="/ui/buttons">
+            <Link to={`/ui/buttons`}>button</Link>
+          </Menu.Item>
+          <Menu.Item key="/ui/icons">
+            <Link to={`/ui/icons`}>icons</Link>
+          </Menu.Item>
+          <Menu.Item key="/ui/dropdown">
+            <Link to={`/ui/dropdown`}>dropdown</Link>
+          </Menu.Item>
+          <Menu.Item key="/ui/pageination">
+            <Link to={`/ui/pageination`}>pageination</Link>
+          </Menu.Item>
+
         </SubMenu>
         
       </Menu>

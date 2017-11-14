@@ -14,8 +14,6 @@ import {
 import ModePage from 'Modebase/page'
 import './index.css'
 import { observer } from "mobx-react";
-import { Link } from "react-router-dom";
-import ShareButtons from '../components';
 import webconfig from 'src/config'
 import axios from 'axios';
 

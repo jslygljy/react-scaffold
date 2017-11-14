@@ -12,7 +12,7 @@ import {
 import { FormattedMessage } from 'react-intl';
 import ModePage from 'Modebase/page'
 import './index.css';
-import ButtonStore from 'containers/Buttons/stores'
+import ButtonStore from 'component/Buttons/stores'
 import {observer} from "mobx-react";
 
 

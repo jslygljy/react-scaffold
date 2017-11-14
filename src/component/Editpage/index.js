@@ -24,7 +24,6 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import ReactCrop, { makeAspectCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import webconfig from 'src/config'
-import http from 'Modebase/http'
 import axios from 'axios';
 import draftToHtml from 'draftjs-to-html';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';

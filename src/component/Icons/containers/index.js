@@ -4,7 +4,7 @@ import {
     Breadcrumb} from "antd";
 import ModePage from 'Modebase/page'
 import './index.css'
-import IconsStore from 'containers/Icons/stores'
+import IconsStore from 'component/Icons/stores'
 import {observer} from "mobx-react";
 
 @observer

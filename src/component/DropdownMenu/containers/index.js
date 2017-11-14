@@ -12,7 +12,7 @@ import {
 } from "antd";
 import ModePage from 'Modebase/page'
 import './index.css'
-import DropDownStore from 'containers/DropdownMenu/stores'
+import DropDownStore from 'component/DropdownMenu/stores'
 import {observer} from "mobx-react";
 const { Content } = Layout;
 
