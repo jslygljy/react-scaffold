@@ -9,7 +9,7 @@ import config from './config'
 //注册 mobx
 import { Provider } from 'mobx-react'
 import RootStore from './store/RootStore'
-import Indexpage from 'containers/Page'
+import Indexpage from 'component/Page'
 
 
 //注册 多语言 

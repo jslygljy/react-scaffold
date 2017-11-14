@@ -14,7 +14,7 @@ import  {
 const Buttons = (props) => (
     <Bundle load={(cb) => {
             require.ensure([], require => {
-                cb(require('containers/Buttons/containers').default);
+                cb(require('component/Buttons/containers').default);
             },'Buttons');
         }}>
         {(Buttons) => <Buttons {...props}/>}
@@ -24,7 +24,7 @@ const Buttons = (props) => (
 const Icons = (props) => (
     <Bundle load={(cb) => {
         require.ensure([], require => {
-            cb(require('containers/Icons/containers').default);
+            cb(require('component/Icons/containers').default);
         },'Icons');
     }}>
         {(Icons) => <Icons {...props}/>}
@@ -34,7 +34,7 @@ const Icons = (props) => (
 const DropdownMenu = (props) => (
     <Bundle load={(cb) => {
         require.ensure([], require => {
-            cb(require('containers/DropdownMenu/containers').default);
+            cb(require('component/DropdownMenu/containers').default);
         },'DropdownMenu');
     }}>
         {(DropdownMenu) => <DropdownMenu {...props}/>}
@@ -44,7 +44,7 @@ const DropdownMenu = (props) => (
 const Pageination = (props) => (
     <Bundle load={(cb) => {
         require.ensure([], require => {
-            cb(require('containers/Pageination/containers').default);
+            cb(require('component/Pageination/containers').default);
         },'Pageination');
     }}>
         {(Pageination) => <Pageination {...props}/>}
@@ -54,7 +54,7 @@ const Pageination = (props) => (
 const Information = (props) => (
     <Bundle load={(cb) => {
         require.ensure([], require => {
-            cb(require('containers/Information/containers').default);
+            cb(require('component/Information/containers').default);
         },'Information');
     }}>
         {(Information) => <Information {...props}/>}
@@ -64,7 +64,7 @@ const Information = (props) => (
 const Reshopment = (props) => (
     <Bundle load={(cb) => {
         require.ensure([], require => {
-            cb(require('containers/Reshipment/containers').default);
+            cb(require('component/Reshipment/containers').default);
         },'Reshopment');
     }}>
         {(Reshopment) => <Reshopment {...props}/>}
@@ -74,7 +74,7 @@ const Reshopment = (props) => (
 const Editpage = (props) => (
     <Bundle load={(cb) => {
         require.ensure([], require => {
-            cb(require('containers/Editpage').default);
+            cb(require('component/Editpage').default);
         },'Editpage');
     }}>
         
@@ -91,9 +91,9 @@ export default class RouterUrl extends Component{
     render(){
         return(
                 <Switch>
-                    <Route exact path="/information" component={Buttons}/>
-                    <Route path='/ui/buttons' component={Buttons}/>
+                    <Route exact path='/' component={Buttons}/>
                     <Route path='/ui/icons' component={Icons}/>
+                    <Route path='/ui/buttons' component={Buttons}/>
                     <Route path='/ui/dropdown' component={DropdownMenu}/>
                     <Route path='/ui/pageination' component={Pageination}/>
                     <Route path='/ui/information' component={Information}/>

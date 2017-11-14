@@ -80,7 +80,7 @@ module.exports = {
       'language':path.join(__dirname, '..', 'src/language'),
       'router':path.join(__dirname, '..', 'src/router'),
       'Modebase':path.join(__dirname, '..', 'src/Modebase'),
-      'containers':path.join(__dirname, '..', 'src/containers')
+      'component':path.join(__dirname, '..', 'src/component')
     },
     plugins: [
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
