@@ -3,12 +3,6 @@ import {
     Row,
     Col,
     Button,
-    Select,
-    Input,
-    Icon,
-    Modal,
-    Tag,
-    Pagination,
     message
 } from "antd";
 import ModePage from 'Modebase/page'
@@ -17,8 +11,6 @@ import { observer } from "mobx-react";
 import webconfig from 'src/config'
 import axios from 'axios';
 
-const Option = Select.Option;
-const Search = Input.Search;
 
 @observer
 class Reshipment extends ModePage {

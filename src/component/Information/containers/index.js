@@ -15,6 +15,7 @@ import './index.css'
 import {observer} from "mobx-react";
 import { Link } from "react-router-dom";
 import ShareButtons from '../components';
+import CustDown from 'component/CustDown'
 
 
 const Option = Select.Option;
@@ -54,6 +55,9 @@ class Information extends ModePage {
         const suffix = userName ? <Icon type="close-circle" onClick={this.emitEmpty} /> : null;
         return (
             <div className="informationpage">
+                <CustDown
+                  startTime={123213123213}
+                ></CustDown>
                 <Row gutter={16}>
                     <Col span={6}>所属类别:
                         <Select defaultValue="0" style={{width:170,marginLeft:10}} size="large" onChange={this.handleChange}>
