@@ -1,6 +1,6 @@
 {
   "name": "react-webpack-scaffold",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "private": false,
   "theme": {
     "primary-color": "#1DA57A"
